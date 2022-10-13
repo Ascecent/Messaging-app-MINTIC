@@ -64,6 +64,7 @@ def register():
     content = 'Hello there, to activate your account, please click on this link ' + flask.url_for(
         'auth.activate', _external=True) + '?auth=' + validator
 
+    print(content)
     utils.send_email(credentials, email, 'Activate your account', content)
 
     flash('Please check in your registered email to activate your account')
@@ -170,6 +171,7 @@ def forgot():
     content = 'Hello there, to change your password, please click on this link ' + flask.url_for(
         'auth.change', _external=True) + '?auth=' + validator
 
+    print(content)
     utils.send_email(credentials, receiver=email, subject='New Password', message=content)
     flash('Please check in your registered email')
     return render_template('auth/login.html')
